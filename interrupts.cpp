@@ -5,7 +5,7 @@
  *
  */
 
-#include<interrupts.hpp>
+#include "interrupts.hpp"
 
 int main(int argc, char** argv) {
 
@@ -38,12 +38,14 @@ int main(int argc, char** argv) {
         
         if(activity == "CPU") {             //handles the activity CPU burst and is responsible for the durations.
 
-            execution += snprintf(current_time, " , %d", duration_intr, ", CPU Burst");
+            execution += std:: to_string(current_time) + ", " + std:: to_string(duration_intr) + ", CPU Burst\n"; //Time of event, Duration of the event, Event type
             current_time += duration_intr;  // updates the current time
         }
 
 
-        else if(activity == "SYSCALL") {} 
+        else if(activity == "SYSCALL") {
+            
+        } 
 
 
 
