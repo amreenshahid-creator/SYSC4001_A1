@@ -20,11 +20,8 @@ int main(int argc, char** argv) {
 
     /******************ADD YOUR VARIABLES HERE*************************/
 
-    //int kernel_switch_time = 1;
     int save_restore_context_time = 10;
-    //int ISR_start_address_time = 1;
-    //int get_address_time= 1;
-    //int execute_ISRbody_time = 40;
+    int execute_ISRbody_time = 40;
     int execute_IRET_time = 1;
     int current_time = 0;
 
@@ -68,7 +65,7 @@ int main(int argc, char** argv) {
             execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr - 1]) + ", SYSCALL: run the ISR (device driver)\n";
 
             // 8. Update time using delays 
-            current_time += delays[duration_intr - 1]; //get delay (ms) from the device_table
+            current_time += execute_ISRbody_time + delays[duration_intr - 1]; //get delay (ms) from the device_table
 
             // 9. Execute IRET
             execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", SYSCALL: Return from ISR\n"; //this doesnt have a event type in example exec.file but made one any way
@@ -87,7 +84,7 @@ int main(int argc, char** argv) {
             
             execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr - 1]) + ", END_IO: run the ISR (device driver)\n";
 
-            current_time += delays[duration_intr - 1];
+            current_time += execute_ISRbody_time + delays[duration_intr - 1];
 
             execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", END_IO: Return from ISR\n"; 
 
