@@ -1,0 +1,15 @@
+0, 51, CPU Burst
+51, 1, switch to kernel mode
+52, 20, context saved
+72, 1, find vector 13 in memory position 0x001A
+73, 1, load address 0X06C7 into the PC
+74, 636, SYSCALL: run the ISR (device driver)
+750, 1, SYSCALL: Return from ISR
+751, 39, CPU Burst
+790, 1, switch to kernel mode
+791, 20, context saved
+811, 1, find vector 13 in memory position 0x001A
+812, 1, load address 0X06C7 into the PC
+813, 636, END_IO: run the ISR (device driver)
+1449, 1, END_IO: Return from ISR
+1450, 72, CPU Burst
