@@ -1,0 +1,15 @@
+0, 50, CPU burst
+50, 1, switch to kernel mode
+51, 23, context saved
+74, 1, find vector 4 in memory position 0x0008
+75, 1, load address 0X0292 into the PC
+126, 7, IRET
+127, 7, Store information in memory.
+127, 100, CPU burst
+227, 1, switch to kernel mode
+228, 23, context saved
+251, 1, find vector 4 in memory position 0x0008
+252, 1, load address 0X0292 into the PC
+480, 12, IRET
+481, 12, Store information in memory.
+481, 20, CPU burst
