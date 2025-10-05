@@ -20,7 +20,13 @@ int main(int argc, char** argv) {
 
     /******************ADD YOUR VARIABLES HERE*************************/
 
-
+    int kernel_switch_time = 1;
+    int save_restore_context_time = 10;
+    int ISR_start_address_time = 1;
+    int get_address = 1;
+    int execute_ISRbody_time = 40;
+    int execute_IRET_time = 1;
+    int current_time = 0;
 
     /******************************************************************/
 
@@ -29,7 +35,19 @@ int main(int argc, char** argv) {
         auto [activity, duration_intr] = parse_trace(trace);
 
         /******************ADD YOUR SIMULATION CODE HERE*************************/
+        
+        if(activity == "CPU") {             //handles the activity CPU burst and is responsible for the durations.
 
+            execution += snprintf(current_time, " , %d", duration_intr, ", CPU Burst");
+            current_time += duration_intr;  // updates the current time
+        }
+
+
+        else if(activity == "SYSCALL") {} 
+
+
+
+        else if(activity == "END_IO") {}
 
 
         /************************************************************************/
