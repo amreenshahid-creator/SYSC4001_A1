@@ -59,19 +59,19 @@ int main(int argc, char** argv) {
             // 9. Execute IRET
             // 10. Update time using execute_IRET_time
             
-            auto[execute, time] = intr_boilerplate(current_time, duration_intr, save_restore_context_time, vectors);
+            auto[execute, time] = intr_boilerplate(current_time, duration_intr - 1, save_restore_context_time, vectors);
             execution += execute; 
             current_time = time;
             
 
             // 7. Execute the ISR body
-            execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr]) + ", SYSCALL: run the ISR (device driver)\n";
+            execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr - 1]) + ", SYSCALL: run the ISR (device driver)\n";
 
             // 8. Update time using delays 
-            current_time += delays[duration_intr]; //get delay (ms) from the device_table
+            current_time += delays[duration_intr - 1]; //get delay (ms) from the device_table
 
             // 9. Execute IRET
-            execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", SYSCALL: Return from ISR\n"; //this doesnt have a event type in exec. file but made one any way
+            execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", SYSCALL: Return from ISR\n"; //this doesnt have a event type in example exec.file but made one any way
 
             // 10. Update time using execute_IRET_time
             current_time += execute_IRET_time; 
@@ -81,13 +81,13 @@ int main(int argc, char** argv) {
         else if(activity == "END_IO") {
             //Same logic as System calls
 
-            auto[execute, time] = intr_boilerplate(current_time, duration_intr, save_restore_context_time, vectors);
+            auto[execute, time] = intr_boilerplate(current_time, duration_intr - 1, save_restore_context_time, vectors);
             execution += execute; 
             current_time = time;
             
-            execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr]) + ", END_IO: run the ISR (device driver)\n";
+            execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr - 1]) + ", END_IO: run the ISR (device driver)\n";
 
-            current_time += delays[duration_intr];
+            current_time += delays[duration_intr - 1];
 
             execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", END_IO: Return from ISR\n"; 
 
