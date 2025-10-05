@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     int kernel_switch_time = 1;
     int save_restore_context_time = 10;
     int ISR_start_address_time = 1;
-    int get_address = 1;
+    int get_address_time= 1;
     int execute_ISRbody_time = 40;
     int execute_IRET_time = 1;
     int current_time = 0;
@@ -44,12 +44,46 @@ int main(int argc, char** argv) {
 
 
         else if(activity == "SYSCALL") {
+            // Summary of what this command will do
+            // 1. Switch modes 
+            // 2. Update time using kernel_switch_time and save_restore_context_time
+            // 3. From the device number, calculate where in memory the address is in
+            // 4. Update time using ISR_start_address_time
+            // 5. Get ISR address from vector table
+            // 6. Update time using get_address_time
+
+            // *helper function intr_boilerplate already does the steps above*
+
+            // 7. Execute the ISR body
+            // 8. Update time using delays
+            // 9. Execute IRET
+            // 10. Update time using execute_IRET_time
             
+            auto[execute, time] = intr_boilerplate(current_time, duration_intr, save_restore_context_time, vectors);
+            execution += execute; 
+            current_time = time;
+            
+
+            // 7. Execute the ISR body
+            execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr]) + ", SYSCALL: run the ISR (device driver)\n";
+
+            // 8. Update time using delays 
+            current_time += delays[duration_intr];
+
+            // 9. Execute IRET
+            execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", SYSCALL: IRET Return from system call\n"; //this doesnt have a event type in exec. file but made one any way
+
+            // 10. Update time using execute_IRET_time
+            current_time += execute_IRET_time; 
+
         } 
 
 
+        else if(activity == "END_IO") {
 
-        else if(activity == "END_IO") {}
+
+        }
+
 
 
         /************************************************************************/
