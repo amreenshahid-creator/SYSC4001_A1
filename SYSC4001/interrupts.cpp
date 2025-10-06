@@ -20,8 +20,9 @@ int main(int argc, char** argv) {
 
     /******************ADD YOUR VARIABLES HERE*************************/
     int time = 0;
-    int context_saved_time = 33;
-    
+    int context_saved_time = 10;
+    int ISR_time = 40;
+    int IRET_time = 1;
 
     /******************************************************************/
 
@@ -38,11 +39,22 @@ int main(int argc, char** argv) {
             auto [write, delayed_time] = intr_boilerplate(time, argc, context_saved_time, vectors);
             execution += write;
             time += delayed_time;
-            execution += std:: to_string(time) + ", " + std::to_string(duration_intr) +  ", IRET\n";
-            time += 1;
+
+            execution += std::to_string(time) + ", " + std:: to_string(delays[duration_intr - 1]) + ", SYSCALL\n";
+            time += ISR_time + delays[duration_intr - 1];
+
+            execution += std::to_string(time) + ", " + std:: to_string(IRET_time) + ", IRET\n";
+            time  += IRET_time;
         }
         else if(activity == "END_IO") {
+            auto [write, delayed_time] = intr_boilerplate(time, argc, context_saved_time, vectors);
+            execution += write;
+            time += delayed_time;
+
+            execution += std:: to_string(time) + ", " + std:: to_string(IRET_time) + ", END_IO\n"; 
+            current_time += delays[duration_intr - 1] + ISR_time + IRET_time; 
             execution += std:: to_string(time) + ", " + std::to_string(duration_intr) + ", Store information in memory.\n";
+            time += IRET_time;
         }
 
 
