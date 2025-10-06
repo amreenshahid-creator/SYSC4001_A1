@@ -4,68 +4,68 @@
 86, 1, find vector 4 in memory position 0x0008
 87, 1, load address 0X0292 into the PC
 88, 250, SYSCALL: run the ISR (device driver)
-338, 1, SYSCALL: Return from ISR
-339, 84, CPU Burst
-423, 1, switch to kernel mode
-424, 10, context saved
-434, 1, find vector 4 in memory position 0x0008
-435, 1, load address 0X0292 into the PC
-436, 250, END_IO: run the ISR (device driver)
-686, 1, END_IO: Return from ISR
-687, 22, CPU Burst
-709, 1, switch to kernel mode
-710, 10, context saved
-720, 1, find vector 9 in memory position 0x0012
-721, 1, load address 0X036C into the PC
-722, 156, SYSCALL: run the ISR (device driver)
-878, 1, SYSCALL: Return from ISR
-879, 80, CPU Burst
-959, 1, switch to kernel mode
-960, 10, context saved
-970, 1, find vector 9 in memory position 0x0012
-971, 1, load address 0X036C into the PC
-972, 156, END_IO: run the ISR (device driver)
-1128, 1, END_IO: Return from ISR
-1129, 79, CPU Burst
-1208, 1, switch to kernel mode
-1209, 10, context saved
-1219, 1, find vector 5 in memory position 0x000A
-1220, 1, load address 0X048B into the PC
-1221, 211, SYSCALL: run the ISR (device driver)
-1432, 1, SYSCALL: Return from ISR
-1433, 68, CPU Burst
-1501, 1, switch to kernel mode
-1502, 10, context saved
-1512, 1, find vector 5 in memory position 0x000A
-1513, 1, load address 0X048B into the PC
-1514, 211, END_IO: run the ISR (device driver)
-1725, 1, END_IO: Return from ISR
-1726, 71, CPU Burst
-1797, 1, switch to kernel mode
-1798, 10, context saved
-1808, 1, find vector 3 in memory position 0x0006
-1809, 1, load address 0X042B into the PC
-1810, 300, SYSCALL: run the ISR (device driver)
-2110, 1, SYSCALL: Return from ISR
-2111, 97, CPU Burst
-2208, 1, switch to kernel mode
-2209, 10, context saved
-2219, 1, find vector 3 in memory position 0x0006
-2220, 1, load address 0X042B into the PC
-2221, 300, END_IO: run the ISR (device driver)
-2521, 1, END_IO: Return from ISR
-2522, 84, CPU Burst
-2606, 1, switch to kernel mode
-2607, 10, context saved
-2617, 1, find vector 6 in memory position 0x000C
-2618, 1, load address 0X0639 into the PC
-2619, 265, SYSCALL: run the ISR (device driver)
-2884, 1, SYSCALL: Return from ISR
-2885, 38, CPU Burst
-2923, 1, switch to kernel mode
-2924, 10, context saved
-2934, 1, find vector 6 in memory position 0x000C
-2935, 1, load address 0X0639 into the PC
-2936, 265, END_IO: run the ISR (device driver)
-3201, 1, END_IO: Return from ISR
-3202, 90, CPU Burst
+378, 1, SYSCALL: Return from ISR
+379, 84, CPU Burst
+463, 1, switch to kernel mode
+464, 10, context saved
+474, 1, find vector 4 in memory position 0x0008
+475, 1, load address 0X0292 into the PC
+476, 250, END_IO: run the ISR (device driver)
+766, 1, END_IO: Return from ISR
+767, 22, CPU Burst
+789, 1, switch to kernel mode
+790, 10, context saved
+800, 1, find vector 9 in memory position 0x0012
+801, 1, load address 0X036C into the PC
+802, 156, SYSCALL: run the ISR (device driver)
+998, 1, SYSCALL: Return from ISR
+999, 80, CPU Burst
+1079, 1, switch to kernel mode
+1080, 10, context saved
+1090, 1, find vector 9 in memory position 0x0012
+1091, 1, load address 0X036C into the PC
+1092, 156, END_IO: run the ISR (device driver)
+1288, 1, END_IO: Return from ISR
+1289, 79, CPU Burst
+1368, 1, switch to kernel mode
+1369, 10, context saved
+1379, 1, find vector 5 in memory position 0x000A
+1380, 1, load address 0X048B into the PC
+1381, 211, SYSCALL: run the ISR (device driver)
+1632, 1, SYSCALL: Return from ISR
+1633, 68, CPU Burst
+1701, 1, switch to kernel mode
+1702, 10, context saved
+1712, 1, find vector 5 in memory position 0x000A
+1713, 1, load address 0X048B into the PC
+1714, 211, END_IO: run the ISR (device driver)
+1965, 1, END_IO: Return from ISR
+1966, 71, CPU Burst
+2037, 1, switch to kernel mode
+2038, 10, context saved
+2048, 1, find vector 3 in memory position 0x0006
+2049, 1, load address 0X042B into the PC
+2050, 300, SYSCALL: run the ISR (device driver)
+2390, 1, SYSCALL: Return from ISR
+2391, 97, CPU Burst
+2488, 1, switch to kernel mode
+2489, 10, context saved
+2499, 1, find vector 3 in memory position 0x0006
+2500, 1, load address 0X042B into the PC
+2501, 300, END_IO: run the ISR (device driver)
+2841, 1, END_IO: Return from ISR
+2842, 84, CPU Burst
+2926, 1, switch to kernel mode
+2927, 10, context saved
+2937, 1, find vector 6 in memory position 0x000C
+2938, 1, load address 0X0639 into the PC
+2939, 265, SYSCALL: run the ISR (device driver)
+3244, 1, SYSCALL: Return from ISR
+3245, 38, CPU Burst
+3283, 1, switch to kernel mode
+3284, 10, context saved
+3294, 1, find vector 6 in memory position 0x000C
+3295, 1, load address 0X0639 into the PC
+3296, 265, END_IO: run the ISR (device driver)
+3601, 1, END_IO: Return from ISR
+3602, 90, CPU Burst

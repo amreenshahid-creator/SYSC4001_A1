@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
             
             execution += std::to_string(current_time) + ", " + std:: to_string(delays[duration_intr - 1]) + ", END_IO: run the ISR (device driver)\n";
 
-            current_time += delays[duration_intr - 1];
+            current_time += execute_ISRbody_time + delays[duration_intr - 1];
 
             execution += std:: to_string(current_time) + ", " + std:: to_string(execute_IRET_time) + ", END_IO: Return from ISR\n"; 
 

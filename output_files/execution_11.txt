@@ -11,5 +11,5 @@
 791, 1, find vector 13 in memory position 0x001A
 792, 1, load address 0X06C7 into the PC
 793, 636, END_IO: run the ISR (device driver)
-1429, 1, END_IO: Return from ISR
-1430, 72, CPU Burst
+1469, 1, END_IO: Return from ISR
+1470, 72, CPU Burst
